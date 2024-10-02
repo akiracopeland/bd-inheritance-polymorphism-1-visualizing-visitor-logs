@@ -1,7 +1,6 @@
 package com.amazon.ata.inheritance;
 
-import com.amazon.ata.inheritance.model.InvalidVisit;
-import com.amazon.ata.inheritance.model.Visit;
+import com.amazon.ata.inheritance.model.*;
 
 /**
  * Produces all the various types of Visits.
@@ -17,22 +16,18 @@ public class VisitFactory {
         final String visitorId = columns[1];
         final Visit visit;
         if (visitorId.startsWith("ff")) {
-            // TODO: Return a test visit
-            visit = new Visit();
+            visit = new TestVisit();
         } else if (visitorId.matches(".*a[0-9a-f]$")) {
-            // TODO: Return an Amazon account visit
-            visit = new Visit();
+            visit = new AmazonVisit();
         } else if (visitorId.matches(".*f[0-9a-f]$")) {
-            // TODO: Return a Zappos account visit
             if (visitorId.startsWith("f0")) {
-                visit = new Visit();
+                visit = new ZapposVisit();
             } else {
-                // TODO: Return an Amazon account visit
-                visit = new Visit();
+                visit = new AmazonVisit();
             }
         } else if (visitorId.equals("000000000000")) {
             // The known ID for anonymous session visitors
-            visit = new Visit();
+            visit = new AnonymousVisit();
         } else {
             // Invalid visitor ID
             visit = new InvalidVisit();

@@ -56,10 +56,9 @@ public class VisitVisualizer {
         final InputStream visitLog = this.getClass().getClassLoader().getResourceAsStream(dataset);
         final Scanner visitScanner = new Scanner(visitLog, "UTF-8");
         final List<String> visits = new ArrayList<>();
-        while (visitScanner.hasNext()) {
-            visits.add(visitScanner.next());
+        while (visitScanner.hasNextLine()) {
+            visits.add(visitScanner.nextLine());
         }
         return visits;
     }
-
 }

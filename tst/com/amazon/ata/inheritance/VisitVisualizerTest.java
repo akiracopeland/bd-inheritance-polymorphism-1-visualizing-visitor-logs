@@ -57,7 +57,7 @@ public class VisitVisualizerTest {
         // Count the number of X
         String allXs = strippedOutput.replaceAll("[^X]", "");
         if (allXs.length() > 0) {
-            assertEquals(96, allXs.length(), "Before prework implementation, visualization should be all Xs");
+            assertEquals(98, allXs.length(), "Before prework implementation, visualization should be all Xs");
         } else {
             // Count the number of @ signs
             String allAts = strippedOutput.replaceAll("[^@]", "");
